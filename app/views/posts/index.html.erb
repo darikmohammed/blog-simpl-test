@@ -1,0 +1,18 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <%= render(Notice::NoticeComponent.new(notice: notice))%>
+  <% end %>
+  <div class=' grid grid-cols-2'>
+    <%# form to create a post  %>
+    <%= render(Posts::PostFormComponent.new(post: @post_new))%>
+    <%# show the posts  %>
+    <div class='Posts flex flex-col gap-4 items-center'>
+      <h1 class=' text-lg font-medium'>Posts</h1>
+      <div class="flex flex-col">
+        <% @posts.each do |post|%>
+         <%= render(Posts::PostCardComponent.new(post: post))%>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>
