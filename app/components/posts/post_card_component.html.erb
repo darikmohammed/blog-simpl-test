@@ -6,7 +6,9 @@
       </svg>
       Members only
     </p>
-    <div class="text-gray-900 font-bold text-xl mb-2"><%= @post.title%></div>
+    <%= link_to "#{@post.title}", post_path(@post), class: 'text-gray-900 font-bold text-xl mb-2' %>
     <p class="text-gray-700 text-base"><%= @post.content%></p>
+    <p class="text-gray-700 text-base"><%= pluralize @post.comments.count, "comment" %></p>
+
   </div>
 </div>
